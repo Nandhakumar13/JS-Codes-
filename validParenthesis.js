@@ -1,23 +1,23 @@
-// 921. Minimum Add to Make Parentheses Valid
+// check the given string is valid parenthesis.
 
-function validParanthesis(str){
-    let balance = 0;
-    let additions = 0;
+// valid parenthesis should contain proper open and closing brackets
 
-    for(let i =0; i < str.length; i++){
-        if(str[i] == '('){
-            balance++;
+
+function validParenthesis(str){
+    let openCount = 0;
+    // let closecount = 0;
+    let n = str.length;
+
+    for(let i =0; i < n;i++){
+        if(str[i] == "("){
+            openCount++;
         }else{
-            if(balance > 0){
-                balance--;
+            if(openCount == 0){
+                return false;
             }else{
-                additions++;
+                openCount--;
             }
         }
     }
-    return balance+additions;
+    return openCount == 0 ? true :false;
 }
-
-
-console.log("total count", validParanthesis(")(()") );
-console.log("total count", validParanthesis(")(())") );
