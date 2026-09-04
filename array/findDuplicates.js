@@ -24,7 +24,16 @@ function indexOf(arr){
     return false;
 }
 
+function setMethod(arr){
+    let set = new Set();
 
+    for(let num of arr){
+        if(set.has(num)) return true;
+        set.add(num);
+    }
+    return false;
+}
 
 // console.log("find duplicate", findDuplicate([1,2,3,4,2]));
-console.log("find duplicate", indexOf([1,2,3,4,2]));
+// console.log("find duplicate", indexOf([1,2,3,4,2]));
+console.log("find duplicate", setMethod([1,2,3,4]));
