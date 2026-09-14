@@ -335,6 +335,49 @@ function maxNonRepeatSubString(str){
     return "Max length of non repetative sub string is "+maxLength+" no repeatative subString :: " + str.slice(startIndex, startIndex+maxLength);
 }
 
-console.log(maxNonRepeatSubString("abcabcdb"));
+// console.log(maxNonRepeatSubString("abcabcdb"));
+
+
+function groupAnagram(arr){  //[abc, bac, bcd]
+    let map = new Map();
+
+    for(let word of arr){
+        let countArr = new Array(26).fill(26);
+
+        for(let char of word){
+            countArr[char.charCodeAt(0) - 97 ]++;
+        }
+        let key = countArr.join('#');
+
+        if(!map.has(key)){
+            map.set(key,[]);
+        }
+        map.get(key).push(word);
+    }
+
+    return Array.from(map.values());
+}
+
+
+let strs = ["act","pots","tops","cat","stop","hat"];
+// console.log(groupAnagram(strs));
+
+
+
+function topKFreqElem(arr,k){
+    let map = new Map();
+
+    for(let char of arr){
+        map.set(char,(map.get(char) || 0) + 1 );
+    }
+
+    let res = Array.from(map.entries()).sort((a, b) => b[1] - a[1]).slice(0,k).map(entry => entry[0]);
+    return res;
+}
+
+console.log("Top K frequent elements in the given array", topKFreqElem([1,2,2,3,3,3],2));
+
+
+
 
 
