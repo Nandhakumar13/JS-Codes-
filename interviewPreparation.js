@@ -375,7 +375,27 @@ function topKFreqElem(arr,k){
     return res;
 }
 
-console.log("Top K frequent elements in the given array", topKFreqElem([1,2,2,3,3,3],2));
+// console.log("Top K frequent elements in the given array", topKFreqElem([1,2,2,3,3,3],2));
+
+function flatArray(arr){
+    let resArr = [];
+    for(let elem of arr){
+        if(Array.isArray(elem)){
+            // resArr = resArr.concat(flatArray(elem));
+            resArr.push(...flatArray(elem));
+        }else{
+            resArr.push(elem);
+        }
+    }
+    return resArr;
+
+    // let res = arr.map((elem) => elem.flat());
+    // let res = arr.map().flat();
+
+    return res;
+}
+
+console.log("flattening the array ", flatArray([2,[3,[5,6],7,[8],10],11]));
 
 
 
