@@ -457,7 +457,7 @@ function maxLongConsecutiveSeq(arr){
 }
 
 // longConsecutiveSeq([1,4,2,5,7,3]);
-console.log(maxLongConsecutiveSeq([1,2,5,7,3,5]));
+// console.log(maxLongConsecutiveSeq([1,2,5,7,3,5]));
 
 
 // longest substring with non repetative chars
@@ -479,7 +479,33 @@ function maxLengthStr(str){
     return maxLen;
 }
 
-console.log("longest consequtive str ", maxLengthStr("abcabcbb"));
+// console.log("longest consequtive str ", maxLengthStr("abcabcbb"));
+
+// printAll sub array 
+
+function printAllSubArray(arr){
+
+    let n = arr.length;
+
+    let count = 0;
+    for(let i = 0; i < n; i++){
+        for(let j = i; j < n; j++){
+            let subArr = [];
+            let subArrSum = 0;
+            for(let k = i; k <= j; k++){
+                subArr.push(arr[k]);
+                subArrSum+=arr[k];
+            }
+            if(subArrSum == 0) count++;
+            console.log("Sub array is ",subArr," sum is ", subArrSum);
+        }
+    }
+    console.log("result is ", count);
+    
+}
+
+// console.log("sub array", printAllSubArray([1,2,3,4,5]));
+console.log("sub array", printAllSubArray([4,1,-1]));
 
  
 
