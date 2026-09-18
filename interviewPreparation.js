@@ -505,7 +505,32 @@ function printAllSubArray(arr){
 }
 
 // console.log("sub array", printAllSubArray([1,2,3,4,5]));
-console.log("sub array", printAllSubArray([4,1,-1]));
+// console.log("sub array", printAllSubArray([4,1,-1]));
+
+
+// method 02 
+function hashMapPrefixSum(arr){
+    let prefixSum = 0;
+    let count = 0;
+    let map = new Map();
+
+    for(let num of arr){
+        prefixSum += num;
+
+        if(prefixSum == 0){
+            count++;
+        }
+
+        if(map.has(prefixSum)){
+            count += map.get(prefixSum);
+        }
+
+        map.set(prefixSum, (map.get(prefixSum) || 0) + 1)
+    }
+
+    return count;
+}
+ console.log("sub array", hashMapPrefixSum([4,1,-1]));
 
  
 
