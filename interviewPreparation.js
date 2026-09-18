@@ -430,13 +430,57 @@ function longConsecutiveSeq(arr){
         }
     }
 
-
-
-    console.log(resArr, maxLen);
-    
-    
+    console.log(resArr, maxLen); 
 }
 
-longConsecutiveSeq([1,4,2,5,7,3]);
+// method 02
+
+function maxLongConsecutiveSeq(arr){
+    let set = new Set([...arr]);
+    let maxLength = 1;
+    for(let num of set){
+        if(!set.has(num - 1)){
+            let currLen = 1;
+            let currNum = num;
+
+            while(set.has(currNum+1)){
+                currNum++;
+                currLen++
+            }
+
+            maxLength = Math.max(currLen,maxLength);
+        }
+    }
+
+    return maxLength;
+
+}
+
+// longConsecutiveSeq([1,4,2,5,7,3]);
+console.log(maxLongConsecutiveSeq([1,2,5,7,3,5]));
+
+
+// longest substring with non repetative chars
+
+function maxLengthStr(str){
+    let set = new Set();
+    let maxLen = 0;
+
+    let right = 0;
+
+    for(let left = 0; left < str.length; left++){
+        while(set.has(str[left])){
+            set.delete(str[right]);
+            right++;
+        }
+        set.add(str[left]);
+        maxLen = Math.max(left - right +1 , maxLen);
+    }
+    return maxLen;
+}
+
+console.log("longest consequtive str ", maxLengthStr("abcabcbb"));
+
+ 
 
 
