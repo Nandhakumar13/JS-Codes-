@@ -395,9 +395,48 @@ function flatArray(arr){
     return res;
 }
 
-console.log("flattening the array ", flatArray([2,[3,[5,6],7,[8],10],11]));
+// console.log("flattening the array ", flatArray([2,[3,[5,6],7,[8],10],11]));
 
 
 
+// memoization function
+
+function memoization(fn){
+   let cacheObj = {};
+
+   return function(...args){
+    let key = JSON.stringify(args);
+
+    if(cacheObj[key]) return cacheObj[key];
+
+    let result = fn(...args);
+    cacheObj[key] = result;
+    return result;
+   }
+}
+
+
+function longConsecutiveSeq(arr){
+    let count  = 1;
+    let maxLen = 1;
+    let resArr = arr.sort();
+
+    for(let i = 1; i < arr.length; i++){
+        if( arr[i] - arr[i - 1] == 1){
+            count++;
+            maxLen = Math.max(maxLen, count);
+        }else{
+            count = 1;
+        }
+    }
+
+
+
+    console.log(resArr, maxLen);
+    
+    
+}
+
+longConsecutiveSeq([1,4,2,5,7,3]);
 
 
