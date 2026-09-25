@@ -530,7 +530,39 @@ function hashMapPrefixSum(arr){
 
     return count;
 }
- console.log("sub array", hashMapPrefixSum([4,1,-1]));
+//  console.log("sub array", hashMapPrefixSum([4,1,-1]));
+
+function camelCase(str){
+    let arr = str.split(' ');
+    let res = [];
+    let resStr = "";
+
+    for(let i = 0;i < arr.length; i++){
+        let word = arr[i];
+
+        if(word.length > 0){
+            resStr += word[0].toUpperCase() + word.slice(1);
+        }
+        if(i < arr.length - 1){
+            resStr+=" ";
+        }
+    }
+
+    console.log(resStr);
+    return resStr;
+}
+
+console.log("camel case", camelCase("my name is nandha"));
+
+
+// to snake case 
+
+function snakeCase(str){
+    let res = str.replace(/([A-Z])/g, '_$1').toLowerCase();
+    return res;
+}
+
+// console.log("snake case value", snakeCase("nandhaKumar"));
 
  
 
