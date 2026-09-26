@@ -73,4 +73,22 @@ function validAnagram(s1,s2){
 // t = "car"
 // console.log("Valid anagram", validAnagram(s,t));
 
+// Problem #4 — First Unique Character in a String
 
+function firstUniqueChar(str){
+    let hashMap = new Map();
+
+    for(const char of str){
+        hashMap.set(char, (hashMap.get(char) || 0)+1);
+    }
+
+    for(let i = 0; i<str.length; i++){
+        if(hashMap.get(str[i]) == 1) return i;
+    }
+
+    return -1;
+}
+
+s = "aabb";
+
+console.log("first unique char", firstUniqueChar(s));
