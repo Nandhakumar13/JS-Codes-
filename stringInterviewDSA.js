@@ -91,4 +91,64 @@ function firstUniqueChar(str){
 
 s = "aabb";
 
-console.log("first unique char", firstUniqueChar(s));
+// console.log("first unique char", firstUniqueChar(s));
+
+//Given an array containing numbers and characters, the task was to:
+
+// → Remove the non-numeric characters
+// → Remove duplicate numbers
+// → Sort the remaining numbers
+// → Display only the required numeric values
+
+let arr = [1,2,'a','j','a','t','o','i','x','l','1',4,8,2,7];
+
+function task(arr){
+// → Remove the non-numeric characters
+let resArr = [];
+for(let char of arr){
+    if( !isNaN(char)){
+            resArr.push(char);
+    }
+}
+
+console.log("removed non numeric values", resArr);
+
+// === → Remove duplicate numbers
+
+let set = new Set();
+let resArr1 = [];
+
+for(let i = 0;i < resArr.length;i++){
+    if(!set.has(resArr[i])){
+        resArr1.push(resArr[i]);
+    }
+    set.add(resArr[i]);
+}
+console.log("removed duplicate numbers",resArr1);
+
+// === → Sort the remaining numbers
+let sortArr = [];
+
+let max = Math.max(...resArr1);
+let min = Math.min(...resArr1);
+let range = max - min + 1;
+let countArr = new Array(range).fill(0);
+
+for(let num of resArr1){
+    countArr[num - min]++;
+}
+
+let idx = 0;
+for(let i=0; i < range;i++){
+    while(countArr[i] > 0){
+        resArr1[idx] = i+min;
+        idx++;
+        countArr[i]--;
+    }
+}
+
+console.log("sorted array", resArr1);
+
+}
+
+console.log(task(arr));
