@@ -564,6 +564,23 @@ function snakeCase(str){
 
 // console.log("snake case value", snakeCase("nandhaKumar"));
 
+
+// first repeating character
+
+function firstRepeatingChar(str){
+    let set = new Set();
+
+    for(let char of str){
+        if(set.has(char)) return char;
+        set.add(char);
+    }
+
+    return 0;
+}
  
+
+console.log("first repeating char", firstRepeatingChar("hello"));
+console.log("first repeating char", firstRepeatingChar("nadhan"));
+console.log("first repeating char", firstRepeatingChar("murugam"));
 
 
