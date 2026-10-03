@@ -18,18 +18,22 @@ function flipByOne(str){
     let maxSum = 0;
     let start = 0;
 
-    for(let i = 0; i < n; i++){
-        currSum = Math.max(currSum+gainArr[i], currSum);
-        
-        
+    for(let i = 0; i < n; i++){    
+        currSum += gainArr[i];
         if(currSum > maxSum){
+            maxSum = currSum;
             bestL = start;
             bestR = i;
-        }else if(currSum <= 0){
+        } 
+        
+        if(currSum < 0){
             currSum = 0;
             start = i+1;
         }
-        maxSum = Math.max(maxSum, currSum);
+    }
+
+    if (bestL === -1) {
+        return [];
     }
 
     return [bestL+1, bestR+1];
