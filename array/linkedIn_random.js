@@ -152,4 +152,26 @@ function largestContigousSubarraySum(arr){
 }
 
 // 9️⃣ Check array palindrome
+
+function checkArrayPalindrome(arr){
+    let i = 0;
+    let j = arr.length - 1;
+
+    while(i < j){
+        if(arr[i] !== arr[j]) return false;
+        i++;
+        j--;
+    }
+    return true;
+}
+
 // 🔟 Shuffle an array
+
+function shuffleArray(arr){
+    for(let i = arr.length - 1; i >= 0; i--){
+        let j = Math.floor(Math.random() * i+1);
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+
+    return arr;
+}
