@@ -58,3 +58,26 @@ function secondLargest(arr){
 }
 
 console.log("=== find second largest element present in the array", secondLargest([5, 5,5,4]));
+
+
+// 4 second smallest element 
+
+function secondSmallest(arr){
+    if(arr.length == 0) return 'Empty Array';
+
+    let fMin = arr[0];
+    let sMin = Infinity;
+
+    for(let elem of arr){
+        if(elem < fMin){
+            sMin = fMin;
+            fMin = elem;
+        }else if(elem > fMin && elem < sMin){
+            sMin = elem;
+        }
+    }
+
+    return sMin;
+}
+
+console.log("=== find second smallest element present in the array", secondSmallest([-10, -5, -20, -2]));
