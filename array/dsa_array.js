@@ -146,5 +146,29 @@ function sumArr02(arr){
     }, 0)
 }
 
-console.log("=== Sum of elements in array", sumOfArr([1,2,3,4]));
-console.log("=== Sum of elements in array", sumArr02([1,2,3,4]));
+// console.log("=== Sum of elements in array", sumOfArr([1,2,3,4]));
+// console.log("=== Sum of elements in array", sumArr02([1,2,3,4]));
+
+// 7. Calculate the average of array elements
+
+function aveArr(arr){
+    let n = arr.length;
+    if(n == 0) return 'Empty array';
+
+    let sum = 0;
+    for(const elem of arr){
+        sum+= elem;
+    }
+    return sum / n;
+}
+
+function aveArr02(arr){
+    let n = arr.length;
+    if(n == 0) return 'Empty array';
+    let sum = arr.reduce((acc,elem) => (acc+elem), 0);
+    return sum / n;
+}
+
+console.log("Average of array element", aveArr([1,2,3,4]))
+console.log("Average of array element", aveArr([10, 20, 30, 40, 50]))
+console.log("Average of array element", aveArr02([10, 20, 30, 40, 50]))
