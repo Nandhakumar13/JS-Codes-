@@ -57,7 +57,7 @@ function secondLargest(arr){
     return sMax;
 }
 
-console.log("=== find second largest element present in the array", secondLargest([5, 5,5,4]));
+// console.log("=== find second largest element present in the array", secondLargest([5, 5,5,4]));
 
 
 // 4 second smallest element 
@@ -80,7 +80,7 @@ function secondSmallest(arr){
     return sMin;
 }
 
-console.log("=== find second smallest element present in the array", secondSmallest([-10, -5, -20, -2]));
+// console.log("=== find second smallest element present in the array", secondSmallest([-10, -5, -20, -2]));
 
 
 // 5. Reverse an array.
@@ -109,17 +109,42 @@ function reverseArr02(arr){
 function reverseArr03(arr){
     return arr.reverse();
 }
-console.log("Reverse array", reverseArr([1,2,4,5,6]));
-console.log("Reverse array", reverseArr02([1,2,4,5,6]));
-console.log("Reverse array", reverseArr03([1,2,4,5,6]));
+// console.log("Reverse array", reverseArr([1,2,4,5,6]));
+// console.log("Reverse array", reverseArr02([1,2,4,5,6]));
+// console.log("Reverse array", reverseArr03([1,2,4,5,6]));
 
 
-let a = 10;
-let b = 10;
+// let a = 10;
+// let b = 10;
 
-a ^= b;
-b ^= a;
-a ^= b;
+// a ^= b;
+// b ^= a;
+// a ^= b;
 
-console.log(a, b);
+// console.log(a, b);
 
+// swap two elements 
+
+// a = a + b;
+// b = a - b;
+// a = a - b;
+
+// 6. Calculate the sum of array elements.
+
+function sumOfArr(arr){
+    let sum = 0;
+    for(const elem of arr){
+        sum += elem;
+    }
+
+    return sum;
+}
+
+function sumArr02(arr){
+    return arr.reduce((acc,elem)=>{
+        return acc+elem;
+    }, 0)
+}
+
+console.log("=== Sum of elements in array", sumOfArr([1,2,3,4]));
+console.log("=== Sum of elements in array", sumArr02([1,2,3,4]));
