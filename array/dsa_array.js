@@ -169,6 +169,35 @@ function aveArr02(arr){
     return sum / n;
 }
 
-console.log("Average of array element", aveArr([1,2,3,4]))
-console.log("Average of array element", aveArr([10, 20, 30, 40, 50]))
-console.log("Average of array element", aveArr02([10, 20, 30, 40, 50]))
+// console.log("Average of array element", aveArr([1,2,3,4]))
+// console.log("Average of array element", aveArr([10, 20, 30, 40, 50]))
+// console.log("Average of array element", aveArr02([10, 20, 30, 40, 50]))
+
+
+// 8. Count even and odd numbers.
+
+function countEvenOddnum(arr){
+    let resObj  = {odd:0,even:0};
+    console.log(resObj.odd);
+    
+    for(let elem of arr){
+        if(elem % 2 == 0){
+            resObj.even += 1;
+        }else{
+             resObj.odd += 1;
+        }
+    }
+
+    return resObj;
+}
+
+function countEvenOddnum02(arr){
+    return arr.reduce((acc,elem)=>{
+            if(elem % 2 == 0) acc.even +=1;
+            else acc.odd +=1;
+            return acc;
+    },{odd:0,even:0})
+}
+
+console.log("Count odd and even numbers in the given array", countEvenOddnum([1, 2, 3, 4, 5, 6]));
+console.log("Count odd and even numbers in the given array", countEvenOddnum02([1, 2, 3, 4, 5, 6]));
