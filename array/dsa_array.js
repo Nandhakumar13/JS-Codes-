@@ -178,7 +178,7 @@ function aveArr02(arr){
 
 function countEvenOddnum(arr){
     let resObj  = {odd:0,even:0};
-    console.log(resObj.odd);
+    // console.log(resObj.odd);
     
     for(let elem of arr){
         if(elem % 2 == 0){
@@ -199,5 +199,26 @@ function countEvenOddnum02(arr){
     },{odd:0,even:0})
 }
 
-console.log("Count odd and even numbers in the given array", countEvenOddnum([1, 2, 3, 4, 5, 6]));
-console.log("Count odd and even numbers in the given array", countEvenOddnum02([1, 2, 3, 4, 5, 6]));
+// console.log("Count odd and even numbers in the given array", countEvenOddnum([1, 2, 3, 4, 5, 6]));
+// console.log("Count odd and even numbers in the given array", countEvenOddnum02([1, 2, 3, 4, 5, 6]));
+
+// 9. Find the second largest element (revisit with edge cases)
+
+    function secondLargestElem(arr){
+        if(arr.length < 2) return null;   
+        let fMax = arr[0]; 
+        let sMax = null;
+
+        for(const elem of arr){
+            if(elem > fMax){
+                sMax = fMax
+                fMax = elem;
+            }else if( elem < fMax && (elem > sMax ||  sMax === null)){
+                sMax= elem;
+            }
+        }
+
+        return sMax;
+    }
+
+console.log("=== find second larget element in the array", secondLargestElem([10, 5, 20, 8, 20, 15]));
