@@ -81,3 +81,45 @@ function secondSmallest(arr){
 }
 
 console.log("=== find second smallest element present in the array", secondSmallest([-10, -5, -20, -2]));
+
+
+// 5. Reverse an array.
+
+function reverseArr(arr){
+    let left = 0;
+    let right = arr.length - 1;
+
+    while(left < right){
+        [arr[left],arr[right]] = [arr[right],arr[left]];
+        left++;
+        right--;
+    }
+    return arr;
+}
+
+function reverseArr02(arr){
+    let res = [];
+
+    for(let i = arr.length - 1; i>=0; i--){
+        res.push(arr[i]);
+    }
+    return res;
+}
+
+function reverseArr03(arr){
+    return arr.reverse();
+}
+console.log("Reverse array", reverseArr([1,2,4,5,6]));
+console.log("Reverse array", reverseArr02([1,2,4,5,6]));
+console.log("Reverse array", reverseArr03([1,2,4,5,6]));
+
+
+let a = 10;
+let b = 10;
+
+a ^= b;
+b ^= a;
+a ^= b;
+
+console.log(a, b);
+
