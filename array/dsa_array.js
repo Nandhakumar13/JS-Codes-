@@ -271,5 +271,65 @@ function isSorted(arr){
     return true
 }
 
-console.log("Is array sorted in non-decreasing order", isSorted([1, 2, 3, 4, 5]))
-console.log("Is array sorted in non-decreasing order", isSorted([5, 4, 3, 2, 1]))
+// console.log("Is array sorted in non-decreasing order", isSorted([1, 2, 3, 4, 5]))
+// console.log("Is array sorted in non-decreasing order", isSorted([5, 4, 3, 2, 1]))
+
+
+// 11. Remove duplicates from a sorted array.
+
+function removeDuplicate(arr){
+    let n = arr.length;
+    let resArr = [];
+    for(let i = 0; i<n;i++){
+        if(resArr.indexOf(arr[i]) == -1 ){
+            resArr.push(arr[i])
+        }
+    }
+
+    return resArr;
+}
+
+function removeDuplicate02(arr){
+    let resArr = [];
+    for(const elem of arr){
+        // console.log(resArr.length, resArr[resArr.length - 1] , elem,resArr[resArr.length - 1] !== elem);
+        if(resArr.length === 0 || resArr[resArr.length - 1] !== elem){
+            resArr.push(elem);
+        }
+    }
+
+    return resArr;
+}
+
+function removeDuplicate03(arr){
+    let n = arr.length;
+    let i = 0;
+    for(let j = 0; j < n; j++){
+        if(arr[j] !== arr[j+1]){
+            [arr[i],arr[j]] = [arr[j], arr[i]] ;
+            i++;
+        }
+    }
+    return arr.slice(0,i);
+}
+
+
+function removeDuplicate04(arr){
+    let i = 0;
+    let n = arr.length;
+
+    for(let j = 1; j < n; j++){
+        if(arr[j] !== arr[i]){
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+
+    // return `${i+1}, ${arr.slice(0,i+1)}`;
+    return arr.slice(0, i+1);
+}
+
+console.log("===  remove duplicates from the sorted array", removeDuplicate([1, 1, 2, 2, 3, 4, 4, 5]));
+console.log("===  remove duplicates from the sorted array", removeDuplicate02([1, 1, 2, 2, 3, 4, 4, 5]));
+console.log("===  remove duplicates from the sorted array", removeDuplicate03([1, 1, 2, 2, 3, 4, 4, 5]));
+console.log("===  remove duplicates from the sorted array", removeDuplicate04([1, 1, 2, 2, 3, 4, 4, 5]));
