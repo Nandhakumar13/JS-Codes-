@@ -1,118 +1,111 @@
 // Array fundamentals and iteration
 //  Find the largest element in an array.
 
+function findMax(arr) {
+  let max = -Infinity;
 
-function findMax(arr){
-    let max = -Infinity;
-
-    for(const elem of arr){
-        if(max < elem){
-            max = elem;
-        }
+  for (const elem of arr) {
+    if (max < elem) {
+      max = elem;
     }
+  }
 
-    return max;
+  return max;
 }
 
 // console.log("=== find largest element present in the array", findMax([4,6,7,2,6,-2,0,1,9,13]));
 
+function findMin(arr) {
+  let min = Infinity;
 
-function findMin(arr){
-    let min = Infinity;
-
-    for(const elem of arr){
-        if(min > elem){
-            min = elem;
-        }
+  for (const elem of arr) {
+    if (min > elem) {
+      min = elem;
     }
+  }
 
-    return min;
+  return min;
 }
 
-// method 02 
-function findMin02(arr){
-    if(arr.length == 0) return 'Empty array';
+// method 02
+function findMin02(arr) {
+  if (arr.length == 0) return "Empty array";
 
-   return arr.reduce((min,curr)=>{
-        return  min > curr ? curr : min;
-    },Infinity)
+  return arr.reduce((min, curr) => {
+    return min > curr ? curr : min;
+  }, Infinity);
 }
 
 // 3. Find the second largest element.
 
-function secondLargest(arr){
-    let fMax = arr[0];
-    let sMax = null;
+function secondLargest(arr) {
+  let fMax = arr[0];
+  let sMax = null;
 
-    for(const elem of arr){
-        if(elem > fMax){
-            sMax = fMax;
-            fMax = elem;
-        }
-        
-       else if(elem < fMax && sMax < elem){
-            sMax = elem;
-        }
+  for (const elem of arr) {
+    if (elem > fMax) {
+      sMax = fMax;
+      fMax = elem;
+    } else if (elem < fMax && sMax < elem) {
+      sMax = elem;
     }
-    return sMax;
+  }
+  return sMax;
 }
 
 // console.log("=== find second largest element present in the array", secondLargest([5, 5,5,4]));
 
+// 4 second smallest element
 
-// 4 second smallest element 
+function secondSmallest(arr) {
+  if (arr.length == 0) return "Empty Array";
 
-function secondSmallest(arr){
-    if(arr.length == 0) return 'Empty Array';
+  let fMin = arr[0];
+  let sMin = Infinity;
 
-    let fMin = arr[0];
-    let sMin = Infinity;
-
-    for(let elem of arr){
-        if(elem < fMin){
-            sMin = fMin;
-            fMin = elem;
-        }else if(elem > fMin && elem < sMin){
-            sMin = elem;
-        }
+  for (let elem of arr) {
+    if (elem < fMin) {
+      sMin = fMin;
+      fMin = elem;
+    } else if (elem > fMin && elem < sMin) {
+      sMin = elem;
     }
+  }
 
-    return sMin;
+  return sMin;
 }
 
 // console.log("=== find second smallest element present in the array", secondSmallest([-10, -5, -20, -2]));
 
-
 // 5. Reverse an array.
 
-function reverseArr(arr){
-    let left = 0;
-    let right = arr.length - 1;
+function reverseArr(arr) {
+  let left = 0;
+  let right = arr.length - 1;
 
-    while(left < right){
-        [arr[left],arr[right]] = [arr[right],arr[left]];
-        left++;
-        right--;
-    }
-    return arr;
+  while (left < right) {
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    left++;
+    right--;
+  }
+  return arr;
 }
 
-function reverseArr02(arr){
-    let res = [];
+function reverseArr02(arr) {
+  let res = [];
 
-    for(let i = arr.length - 1; i>=0; i--){
-        res.push(arr[i]);
-    }
-    return res;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    res.push(arr[i]);
+  }
+  return res;
 }
 
-function reverseArr03(arr){
-    return arr.reverse();
+function reverseArr03(arr) {
+  return arr.reverse();
 }
 // console.log("Reverse array", reverseArr([1,2,4,5,6]));
 // console.log("Reverse array", reverseArr02([1,2,4,5,6]));
 // console.log("Reverse array", reverseArr03([1,2,4,5,6]));
-
 
 // let a = 10;
 // let b = 10;
@@ -123,7 +116,7 @@ function reverseArr03(arr){
 
 // console.log(a, b);
 
-// swap two elements 
+// swap two elements
 
 // a = a + b;
 // b = a - b;
@@ -131,19 +124,19 @@ function reverseArr03(arr){
 
 // 6. Calculate the sum of array elements.
 
-function sumOfArr(arr){
-    let sum = 0;
-    for(const elem of arr){
-        sum += elem;
-    }
+function sumOfArr(arr) {
+  let sum = 0;
+  for (const elem of arr) {
+    sum += elem;
+  }
 
-    return sum;
+  return sum;
 }
 
-function sumArr02(arr){
-    return arr.reduce((acc,elem)=>{
-        return acc+elem;
-    }, 0)
+function sumArr02(arr) {
+  return arr.reduce((acc, elem) => {
+    return acc + elem;
+  }, 0);
 }
 
 // console.log("=== Sum of elements in array", sumOfArr([1,2,3,4]));
@@ -151,52 +144,54 @@ function sumArr02(arr){
 
 // 7. Calculate the average of array elements
 
-function aveArr(arr){
-    let n = arr.length;
-    if(n == 0) return 'Empty array';
+function aveArr(arr) {
+  let n = arr.length;
+  if (n == 0) return "Empty array";
 
-    let sum = 0;
-    for(const elem of arr){
-        sum+= elem;
-    }
-    return sum / n;
+  let sum = 0;
+  for (const elem of arr) {
+    sum += elem;
+  }
+  return sum / n;
 }
 
-function aveArr02(arr){
-    let n = arr.length;
-    if(n == 0) return 'Empty array';
-    let sum = arr.reduce((acc,elem) => (acc+elem), 0);
-    return sum / n;
+function aveArr02(arr) {
+  let n = arr.length;
+  if (n == 0) return "Empty array";
+  let sum = arr.reduce((acc, elem) => acc + elem, 0);
+  return sum / n;
 }
 
 // console.log("Average of array element", aveArr([1,2,3,4]))
 // console.log("Average of array element", aveArr([10, 20, 30, 40, 50]))
 // console.log("Average of array element", aveArr02([10, 20, 30, 40, 50]))
 
-
 // 8. Count even and odd numbers.
 
-function countEvenOddnum(arr){
-    let resObj  = {odd:0,even:0};
-    // console.log(resObj.odd);
-    
-    for(let elem of arr){
-        if(elem % 2 == 0){
-            resObj.even += 1;
-        }else{
-             resObj.odd += 1;
-        }
-    }
+function countEvenOddnum(arr) {
+  let resObj = { odd: 0, even: 0 };
+  // console.log(resObj.odd);
 
-    return resObj;
+  for (let elem of arr) {
+    if (elem % 2 == 0) {
+      resObj.even += 1;
+    } else {
+      resObj.odd += 1;
+    }
+  }
+
+  return resObj;
 }
 
-function countEvenOddnum02(arr){
-    return arr.reduce((acc,elem)=>{
-            if(elem % 2 == 0) acc.even +=1;
-            else acc.odd +=1;
-            return acc;
-    },{odd:0,even:0})
+function countEvenOddnum02(arr) {
+  return arr.reduce(
+    (acc, elem) => {
+      if (elem % 2 == 0) acc.even += 1;
+      else acc.odd += 1;
+      return acc;
+    },
+    { odd: 0, even: 0 },
+  );
 }
 
 // console.log("Count odd and even numbers in the given array", countEvenOddnum([1, 2, 3, 4, 5, 6]));
@@ -204,21 +199,77 @@ function countEvenOddnum02(arr){
 
 // 9. Find the second largest element (revisit with edge cases)
 
-    function secondLargestElem(arr){
-        if(arr.length < 2) return null;   
-        let fMax = arr[0]; 
-        let sMax = null;
+function secondLargestElem(arr) {
+  if (arr.length < 2) return null;
+  let fMax = arr[0];
+  let sMax = null;
 
-        for(const elem of arr){
-            if(elem > fMax){
-                sMax = fMax
-                fMax = elem;
-            }else if( elem < fMax && (elem > sMax ||  sMax === null)){
-                sMax= elem;
-            }
-        }
-
-        return sMax;
+  for (const elem of arr) {
+    if (elem > fMax) {
+      sMax = fMax;
+      fMax = elem;
+    } else if (elem < fMax && (elem > sMax || sMax === null)) {
+      sMax = elem;
     }
+  }
 
-console.log("=== find second larget element in the array", secondLargestElem([10, 5, 20, 8, 20, 15]));
+  return sMax;
+}
+
+// console.log("=== find second larget element in the array", secondLargestElem([10, 5, 20, 8, 20, 15]));
+
+// 9. Count positive, negative and zero elements.
+
+function countPosNeg(arr) {
+  let obj = { positive: 0, negative: 0, zero: 0 };
+
+  for (const elem of arr) {
+    if (elem < 0) obj.negative += 1;
+    else if (elem > 0) obj.positive += 1;
+    else obj.zero += 1;
+  }
+  return obj;
+}
+
+function countPosNeg02(arr) {
+  return arr.reduce(
+    (acc, elem) => {
+      if (typeof elem === 'number' || Number.isFinite(elem)) {
+        if (elem < 0) acc.negative += 1;
+        else if (elem > 0) acc.positive += 1;
+        else acc.zero += 1;
+      }
+
+      return acc;
+    },
+    { positive: 0, negative: 0, zero: 0 },
+  );
+}
+
+// console.log(
+//   "Count positive, negative, zero",
+//   countPosNeg([10, -5, 0, 20, -8, 0, 15, -3]),
+// );
+// console.log(
+//   "Count positive, negative, zero",
+//   countPosNeg02([10, -5, 0, 20, -8, 0, 15, -3]),
+// );
+
+
+// 10: Check whether an array is sorted.
+
+function isSorted(arr){
+    let n = arr.length;
+
+    if(n <= 1) return true;
+
+    for(let i = 1; i < n; i++){
+        if(arr[i] < arr[i-1]){
+            return false;
+        }
+    }
+    return true
+}
+
+console.log("Is array sorted in non-decreasing order", isSorted([1, 2, 3, 4, 5]))
+console.log("Is array sorted in non-decreasing order", isSorted([5, 4, 3, 2, 1]))
