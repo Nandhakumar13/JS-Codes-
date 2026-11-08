@@ -17,4 +17,8 @@ function maxSumSlidingWindow(arr,k){
 }
 
 
-console.log("Max num from the each sliding windows "+ maxSumSlidingWindow([2,1,3,2,4,7,5],3));
+// console.log("Max num from the each sliding windows "+ maxSumSlidingWindow([2,1,3,2,4,7,5],3));
+
+
+
+

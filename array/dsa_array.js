@@ -329,7 +329,22 @@ function removeDuplicate04(arr){
     return arr.slice(0, i+1);
 }
 
-console.log("===  remove duplicates from the sorted array", removeDuplicate([1, 1, 2, 2, 3, 4, 4, 5]));
-console.log("===  remove duplicates from the sorted array", removeDuplicate02([1, 1, 2, 2, 3, 4, 4, 5]));
-console.log("===  remove duplicates from the sorted array", removeDuplicate03([1, 1, 2, 2, 3, 4, 4, 5]));
-console.log("===  remove duplicates from the sorted array", removeDuplicate04([1, 1, 2, 2, 3, 4, 4, 5]));
+// console.log("===  remove duplicates from the sorted array", removeDuplicate([1, 1, 2, 2, 3, 4, 4, 5]));
+// console.log("===  remove duplicates from the sorted array", removeDuplicate02([1, 1, 2, 2, 3, 4, 4, 5]));
+// console.log("===  remove duplicates from the sorted array", removeDuplicate03([1, 1, 2, 2, 3, 4, 4, 5]));
+// console.log("===  remove duplicates from the sorted array", removeDuplicate04([1, 1, 2, 2, 3, 4, 4, 5]));
+
+
+// Problem 12 — Find the frequency of each element.
+
+function findFreq(arr){
+    let map = new Map();
+
+    for(const elem of arr){
+        map.set(elem,(map.get(elem) || 0) + 1);
+    }
+
+    return map;
+}
+
+console.log("Frequency of element in the array", findFreq([1,2,3,2,3,5,7,1]));
