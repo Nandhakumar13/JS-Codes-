@@ -491,4 +491,91 @@ function rotateArr(arr,l,r){
     return arr;
 }
 
-console.log("Rotate array by one position", rotateArrByOnePosition([1, 2, 3, 4, 5],2));
+// console.log("Rotate array by one position", rotateArrByOnePosition([1, 2, 3, 4, 5],2));
+
+// 20. Merge two sorted arrays.
+
+function mergeSortedArr(arr1,arr2){
+    let m = arr1.length;
+    let n = arr2.length;
+
+    let k = m+n -1;
+
+    let i = m - 1;
+    let j = n-1;
+
+    while(i >= 0 && j >= 0){
+        if(arr1[i] > arr2[j]){
+            arr1[k] = arr1[i];
+            i--;
+        }else{
+            arr1[k]= arr2[j];   
+            j--;
+        }
+        k--
+    }
+    return arr1;
+}
+
+
+function mergeSortArray02(arr1, arr2){
+    let i = 0;
+    let j = 0;
+    let res = [];
+
+    while(i < arr1.length  && j < arr2.length){
+        if(arr1[i] < arr2[j]){
+            res.push(arr1[i]);
+            i++;
+        }else{
+            res.push(arr2[j]);
+            j++;
+        }
+    }
+
+    while(i < arr1.length){
+        res.push(arr1[i++]);
+    }
+
+    while( j < arr2.length){
+        res.push(arr2[j++]);
+    }
+
+    return res;
+}
+
+
+// console.log("Merge sorted array", mergeSortedArr([1,3,5,7], [2,4,6,8]));
+console.log("Merge sorted array", mergeSortArray02([1,3,5,7], [2,4,6,8]));
+// function mergeSortArr(arr){
+//     if(arr.length <= 1) return arr;
+
+//     let med = Math.floor(arr.length / 2);
+//     let left = mergeSortArr(arr.slice(0,med));
+//     let right = mergeSortArr(arr.slice(med));
+
+//     return mergeArray(left,right);
+// }
+
+// function mergeArray(left,right){
+//     let resArr = [];
+//     let i = 0;
+//     let j = 0;
+//     while(left.length > i && right.length >j){
+//         if(left[i] <= right[j]){
+//             resArr.push(left[i]);
+//             i++;
+//         }else{
+//             resArr.push(right[j]);
+//             j++;
+//         }
+//     }
+
+//     return resArr.concat(left.slice(i).concat(right.slice(j)));
+// }
+
+
+// console.log("Merge sort array", mergeSortArr([1, 3, 5, 7,2, 4, 6, 8]));
+// console.log("Merger two sorted array", mergeArray([1, 3, 5, 7],[2, 4, 6, 8]));
+
+
