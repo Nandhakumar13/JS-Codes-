@@ -347,4 +347,30 @@ function findFreq(arr){
     return map;
 }
 
-console.log("Frequency of element in the array", findFreq([1,2,3,2,3,5,7,1]));
+// console.log("Frequency of element in the array", findFreq([1,2,3,2,3,5,7,1]));
+
+
+// 13. Find the index of a given element.
+
+function findIndex(arr,k){
+    if (arr.length == 0) return -1;
+
+    for(const elem of arr){
+        if(elem == k ) return arr.indexOf(k);
+    }
+    return -1;
+}
+
+function findIndex02(arr,k){
+    // if(arr.length === 0) return -1;
+
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === k) return i;
+    }
+    return -1;
+}
+
+console.log("Find the index of given element in the array", findIndex([10, 20, 30, 40],30));
+console.log("Find the index of given element in the array", findIndex02([10, 20, 30, 40],30));
+console.log("Find the index of given element in the array", findIndex02([10, 20, 30, 40],50));
+console.log("Find the index of given element in the array", findIndex02([],50));
