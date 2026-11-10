@@ -389,5 +389,38 @@ function linearSearch(arr,k){
 }
 
 
-console.log("Linear Search on array elements", linearSearch([1, 2, 3, 4, 5],3))
-console.log("Linear Search on array elements", linearSearch([1, 2, 3, 4, 5],9))
+// console.log("Linear Search on array elements", linearSearch([1, 2, 3, 4, 5],3))
+// console.log("Linear Search on array elements", linearSearch([1, 2, 3, 4, 5],9))
+
+// 15. Find the missing number from 1 to N.
+
+function findTheMissingNumber(arr){
+    let n = arr.length;
+    let o = n+1;
+    let sum =  o * (o + 1) / 2;
+    let loopSum = 0;
+
+    for(let i = 0; i < n; i++){
+        loopSum += arr[i];
+    }
+
+    return sum - loopSum;
+}
+
+function findMissingNumber02(arr){
+    let n = arr.length + 1;
+    let XORAll = 0;
+    let XORArray = 0;
+
+    for(let i = 1; i<=n;i++){
+        XORAll ^= i;
+    }
+    for(const elem of arr){
+        XORArray ^= elem;
+    }
+
+    return XORAll ^ XORArray;
+}
+
+console.log("find missing number from an array 1 to N", findTheMissingNumber([1,3,4,5,6]));
+console.log("find missing number from an array 1 to N", findMissingNumber02([1,3,4,5,6]));
