@@ -442,4 +442,23 @@ function findMissingNumber02(arr){
         return arr; 
     }
 
-console.log("Move zeros to the end of the array", moveZero([1,2,0,0,2,0,5,2,7,9]));
+// console.log("Move zeros to the end of the array", moveZero([1,2,0,0,2,0,5,2,7,9]));
+
+
+// 17. Move all negative numbers to one side.
+
+function moveNegElem(arr){
+    let n = arr.length;
+    let i = 0;
+
+    for(let j = 0; j < n; j++){
+        if(arr[j] >= 0){
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+            i++;
+        }
+    }
+
+    return arr;
+}
+
+console.log("move neg elements from an array to the end", moveNegElem([-1,3,5,-4,-2,0,1]));
