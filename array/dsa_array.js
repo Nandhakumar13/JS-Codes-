@@ -461,4 +461,34 @@ function moveNegElem(arr){
     return arr;
 }
 
-console.log("move neg elements from an array to the end", moveNegElem([-1,3,5,-4,-2,0,1]));
+// console.log("move neg elements from an array to the end", moveNegElem([-1,3,5,-4,-2,0,1]));
+
+
+// 18. Rotate an array by one position.
+
+function rotateArrByOnePosition(arr,k){
+    let n = arr.length;
+   if (n <= 1) return arr;
+
+k = k % n;
+
+if (k === 0) return arr;
+
+   console.log(rotateArr(arr,0,n-1)) ;
+    console.log(rotateArr(arr,0,k-1))
+    console.log(rotateArr(arr,k,n-1))
+    // console.log(rotateArr(arr,n,k-1));
+
+    return arr;
+}
+
+function rotateArr(arr,l,r){
+    while(l < r){
+        [arr[l], arr[r]] = [arr[r], arr[l]];
+        l++;
+        r--;
+    }
+    return arr;
+}
+
+console.log("Rotate array by one position", rotateArrByOnePosition([1, 2, 3, 4, 5],2));
