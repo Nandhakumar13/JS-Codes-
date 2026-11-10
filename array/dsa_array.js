@@ -370,7 +370,24 @@ function findIndex02(arr,k){
     return -1;
 }
 
-console.log("Find the index of given element in the array", findIndex([10, 20, 30, 40],30));
-console.log("Find the index of given element in the array", findIndex02([10, 20, 30, 40],30));
-console.log("Find the index of given element in the array", findIndex02([10, 20, 30, 40],50));
-console.log("Find the index of given element in the array", findIndex02([],50));
+// console.log("Find the index of given element in the array", findIndex([10, 20, 30, 40],30));
+// console.log("Find the index of given element in the array", findIndex02([10, 20, 30, 40],30));
+// console.log("Find the index of given element in the array", findIndex02([10, 20, 30, 40],50));
+// console.log("Find the index of given element in the array", findIndex02([],50));
+
+
+// 14. Linear search in an array.
+
+function linearSearch(arr,k){
+    let n = arr.length;
+
+    for(let i =0; i < n; i++){
+        if(arr[i] == k) return true
+    }
+
+    return false;
+}
+
+
+console.log("Linear Search on array elements", linearSearch([1, 2, 3, 4, 5],3))
+console.log("Linear Search on array elements", linearSearch([1, 2, 3, 4, 5],9))
