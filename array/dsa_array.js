@@ -422,5 +422,24 @@ function findMissingNumber02(arr){
     return XORAll ^ XORArray;
 }
 
-console.log("find missing number from an array 1 to N", findTheMissingNumber([1,3,4,5,6]));
-console.log("find missing number from an array 1 to N", findMissingNumber02([1,3,4,5,6]));
+// console.log("find missing number from an array 1 to N", findTheMissingNumber([1,3,4,5,6]));
+// console.log("find missing number from an array 1 to N", findMissingNumber02([1,3,4,5,6]));
+
+
+// 16. Move all zeroes to the end.
+
+    function moveZero(arr){
+        if(arr.length === 0) return 'Empty Array';
+        let i = 0;
+        let n = arr.length;
+
+        for(let j =0 ;j < n; j++){
+            if(arr[j] !== 0){
+                [arr[i],arr[j]] = [arr[j],arr[i]];
+                i++;
+            }
+        }
+        return arr; 
+    }
+
+console.log("Move zeros to the end of the array", moveZero([1,2,0,0,2,0,5,2,7,9]));
