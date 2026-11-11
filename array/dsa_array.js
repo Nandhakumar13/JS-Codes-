@@ -546,7 +546,7 @@ function mergeSortArray02(arr1, arr2){
 
 
 // console.log("Merge sorted array", mergeSortedArr([1,3,5,7], [2,4,6,8]));
-console.log("Merge sorted array", mergeSortArray02([1,3,5,7], [2,4,6,8]));
+// console.log("Merge sorted array", mergeSortArray02([1,3,5,7], [2,4,6,8]));
 // function mergeSortArr(arr){
 //     if(arr.length <= 1) return arr;
 
@@ -579,3 +579,23 @@ console.log("Merge sorted array", mergeSortArray02([1,3,5,7], [2,4,6,8]));
 // console.log("Merger two sorted array", mergeArray([1, 3, 5, 7],[2, 4, 6, 8]));
 
 
+// 21. Two Sum.
+
+function twoSum(arr,k){
+    let map = new Map();
+    let res = [];
+    for(let i = 0; i < arr.length; i++){
+        let diff = k - arr[i];
+        
+        if(map.has(diff)){
+            res.push([map.get(diff), i]);
+        }
+
+        map.set(arr[i],i);
+    }
+
+    console.log(map);
+    return res;
+}
+
+console.log("two sum problem", twoSum([3,2,4,5,6,9],9))
