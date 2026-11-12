@@ -598,4 +598,25 @@ function twoSum(arr,k){
     return res;
 }
 
-console.log("two sum problem", twoSum([3,2,4,5,6,9],9))
+console.log("two sum problem", twoSum([3,2,4,5,6,9],9));
+
+
+// sum of digits 
+
+function sumDigits(num){
+    let arr = num.toString().split('').map(elem => Number(elem));
+    console.log("arr is", arr);
+    
+    return sumCal(arr,0);
+}
+
+function sumCal(arr,index,sum = 0){
+    if(arr.length == index){
+        // console.log(sum);
+        return sum;
+    } 
+    sum += arr[index];
+    return sumCal(arr, index+1,sum);
+}
+
+console.log("sum of digits", sumDigits(192));
