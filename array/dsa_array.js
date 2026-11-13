@@ -702,4 +702,25 @@ function firstNonRepeatingElem(arr){
     return -1;
 }
 
-console.log("first non repeating element",firstNonRepeatingElem([10, 5, 3, 4, 3, 5, 6]))
+// console.log("first non repeating element",firstNonRepeatingElem([10, 5, 3, 4, 3, 5, 6]));
+
+
+// Problem 25: Find All Unique Elements in an Array
+function findAllUniqueElem(arr){
+    let hashMap = new Map();
+    let res = [];
+
+    for(const elem of arr){
+        hashMap.set(elem,( hashMap.get(elem) || 0) + 1);
+    }
+
+    for(const elem of arr){
+        if(hashMap.get(elem) == 1 ){
+            res.push(elem);
+        }
+    }
+
+    return res;
+}
+
+console.log("find all unique element", findAllUniqueElem([1, 2, 3, 2, 4, 5, 1]));
