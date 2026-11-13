@@ -598,7 +598,7 @@ function twoSum(arr,k){
     return res;
 }
 
-console.log("two sum problem", twoSum([3,2,4,5,6,9],9));
+// console.log("two sum problem", twoSum([3,2,4,5,6,9],9));
 
 
 // sum of digits 
@@ -619,4 +619,40 @@ function sumCal(arr,index,sum = 0){
     return sumCal(arr, index+1,sum);
 }
 
-console.log("sum of digits", sumDigits(192));
+// console.log("sum of digits", sumDigits(192));
+
+
+// 22. Find duplicate elements in an array.
+
+function findDuplicateElem(arr){
+    let hashMap = new Map();
+
+    for(const elem of arr){
+        hashMap.set(elem, (hashMap.get(elem) || 0)+1);
+    }
+    let res = [];
+    for(const [key,value] of hashMap){
+        if(value > 1){
+            res.push(key);
+        }
+    }
+
+    return res;
+}
+
+function findDuplicateElem02(arr){
+    let seen = new Set();
+    let duplicates = new Set();
+
+    for(const elem of arr){
+        if(seen.has(elem)){
+            duplicates.add(elem);
+        }else{
+            seen.add(elem);
+        }
+    }
+
+    return [...duplicates];
+}
+console.log("find duplicate elements present in the given array", findDuplicateElem([1, 1, 1, 2, 2, 3]) );
+console.log("find duplicate elements present in the given array", findDuplicateElem02([1, 1, 1, 2, 2, 3]) );
