@@ -654,5 +654,33 @@ function findDuplicateElem02(arr){
 
     return [...duplicates];
 }
-console.log("find duplicate elements present in the given array", findDuplicateElem([1, 1, 1, 2, 2, 3]) );
-console.log("find duplicate elements present in the given array", findDuplicateElem02([1, 1, 1, 2, 2, 3]) );
+// console.log("find duplicate elements present in the given array", findDuplicateElem([1, 1, 1, 2, 2, 3]) );
+// console.log("find duplicate elements present in the given array", findDuplicateElem02([1, 1, 1, 2, 2, 3]) );
+
+function firstRepeatingElem(arr){
+    let hashMap =  new Map();
+
+    for(const elem of arr){
+        hashMap.set(elem, (hashMap.get(elem) || 0 ) + 1);
+    }
+
+    for(const [key,value] of hashMap){
+        if(value > 1) return key;
+    }
+
+    return -1;
+}
+
+function firstRepeatingElem02(arr){
+    let seen = new Set();
+    
+    for(const elem of arr){
+        if(seen.has(elem)){
+            return elem;
+        }
+        seen.add(elem);
+    }
+}
+
+console.log("Find first repeating element", firstRepeatingElem([10, 5, 3, 4, 3, 5, 6]));
+// console.log("Find first repeating element", firstRepeatingElem02([10, 5, 3, 4, 3, 5, 6]));

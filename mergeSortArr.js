@@ -28,4 +28,6 @@ function mergeArr(left,right){
 }
 
 
+
+
 console.log("Merge sort :: Array sorting method", mergeSort([3,6,2,1,8,0,4]));
