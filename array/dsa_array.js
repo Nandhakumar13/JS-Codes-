@@ -682,5 +682,24 @@ function firstRepeatingElem02(arr){
     }
 }
 
-console.log("Find first repeating element", firstRepeatingElem([10, 5, 3, 4, 3, 5, 6]));
+// console.log("Find first repeating element", firstRepeatingElem([10, 5, 3, 4, 3, 5, 6]));
 // console.log("Find first repeating element", firstRepeatingElem02([10, 5, 3, 4, 3, 5, 6]));
+
+
+// 24. Find the first non-repeating element.
+
+function firstNonRepeatingElem(arr){
+    let hashMap = new Map();
+
+    for(const elem of arr){
+        hashMap.set(elem, (hashMap.get(elem) || 0) + 1);
+    }
+
+    for(const[key,value] of hashMap){
+        if(value == 1) return key;
+    }
+
+    return -1;
+}
+
+console.log("first non repeating element",firstNonRepeatingElem([10, 5, 3, 4, 3, 5, 6]))
