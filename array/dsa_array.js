@@ -723,4 +723,6 @@ function findAllUniqueElem(arr){
     return res;
 }
 
-console.log("find all unique element", findAllUniqueElem([1, 2, 3, 2, 4, 5, 1]));
+
+
+// console.log("find all unique element", findAllUniqueElem([1, 2, 3, 2, 4, 5, 1]));
