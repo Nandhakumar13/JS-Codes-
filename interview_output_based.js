@@ -22,4 +22,14 @@ function printStars(arr){
 }
 
 // console.log("Histogram for the given arr", histogram([1,1,2,2,2,3]));
-console.log("Histogram for the given arr", printStars([1,1,2,2,2,3]));
+// console.log("Histogram for the given arr", printStars([1,1,2,2,2,3]));
+
+
+var name = "kumar";
+globalThis.name="kumar";
+let nameObj = {
+    name:"nandha",
+    getName: () => console.log(global.name, this,global)
+}
+
+nameObj.getName();
