@@ -735,5 +735,19 @@ function mostFreqElem(arr){
         map.set(elem, (map.get(elem) || 0) + 1);
     }
 
-    
+    let max = 0;
+    let maxElem = 0;
+
+    for(const elem of arr){
+        console.log(map.get(elem), elem);
+        
+        if(map.get(elem) > max){
+            max = map.get(elem);
+            maxElem = elem;
+        }
+    }
+
+    return maxElem;
 }
+
+console.log("Most frequent element present in the arr", mostFreqElem([1,2,4,2,1,4,6,2,4,1,1]));
