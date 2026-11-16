@@ -726,3 +726,14 @@ function findAllUniqueElem(arr){
 
 
 // console.log("find all unique element", findAllUniqueElem([1, 2, 3, 2, 4, 5, 1]));
+
+// 31. Find the most frequent element.
+
+function mostFreqElem(arr){
+    let map = new Map();
+    for(const elem of arr){
+        map.set(elem, (map.get(elem) || 0) + 1);
+    }
+
+    
+}
