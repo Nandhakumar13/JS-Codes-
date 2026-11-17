@@ -785,4 +785,18 @@ function findIntersection(arr1,arr2){
     return [...set];
 }
 
+function findIntersection02(arr1,arr2){
+    let lookUpSet = new Set(arr2);
+    let res = new Set();
+
+    for(const elem of arr1){
+        if(lookUpSet.has(elem)){
+            res.add(elem);
+        }
+    }
+
+    return [...res];
+}
+
 console.log("Intersection of two elements",findIntersection([4, 5, 6, 5, 7], [5, 5, 4, 8]) )
+console.log("Intersection of two elements",findIntersection02([4, 5, 6, 5, 7], [8]) )
