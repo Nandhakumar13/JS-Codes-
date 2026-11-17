@@ -736,12 +736,12 @@ function mostFreqElem(arr){
     }
 
     let max = 0;
-    let maxElem = 0;
+    let maxElem = -1;
 
     for(const elem of arr){
         console.log(map.get(elem), elem);
         
-        if(map.get(elem) > max){
+        if(map.get(elem) >= max){
             max = map.get(elem);
             maxElem = elem;
         }
@@ -750,4 +750,26 @@ function mostFreqElem(arr){
     return maxElem;
 }
 
-console.log("Most frequent element present in the arr", mostFreqElem([1,2,4,2,1,4,6,2,4,1,1]));
+
+
+// console.log("Most frequent element present in the arr", mostFreqElem([1,2,4,2,1,4,6,2,4,1,1]));
+
+// next palindrome number
+
+function nextPalindromeNum(num){
+    let n = num + 1;
+
+    while(true){
+        let str = String(n);
+        let revStr = str.split("").reverse().join('');
+
+        if(str === revStr){
+            return n;
+        }
+
+        n++;
+    }
+}
+
+console.log("Next nearest palindrome number", nextPalindromeNum(121));
+console.log("Next nearest palindrome number", nextPalindromeNum(1221));
