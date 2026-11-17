@@ -825,4 +825,24 @@ function findTheDiff(arr1,arr2){
     return [...res];
 }
 
-console.log("find diff of two element", findTheDiff([2,2,4,3,5],[1,4,3,2]) )
+// console.log("find diff of two element", findTheDiff([2,2,4,3,5],[1,4,3,2]));
+
+// 32. Find the least frequent element.
+
+function leastFreqElem(arr){
+    let hashMap = new Map();
+
+    for(const elem of arr){
+        hashMap.set(elem, (hashMap.get(elem) || 0) + 1);
+    }
+
+    let min = 1;
+    for(const elem of arr){
+        console.log(hashMap.get(elem),elem);
+        if(min >= hashMap.get(elem)){
+            return elem;
+        }
+    }
+}
+
+console.log("Least frequent element ", leastFreqElem([1, 2, 2, 3, 3, 3, 4]))
