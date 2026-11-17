@@ -798,5 +798,14 @@ function findIntersection02(arr1,arr2){
     return [...res];
 }
 
-console.log("Intersection of two elements",findIntersection([4, 5, 6, 5, 7], [5, 5, 4, 8]) )
-console.log("Intersection of two elements",findIntersection02([4, 5, 6, 5, 7], [8]) )
+// console.log("Intersection of two elements",findIntersection([4, 5, 6, 5, 7], [5, 5, 4, 8]) )
+// console.log("Intersection of two elements",findIntersection02([4, 5, 6, 5, 7], [8]) )
+
+
+// 27. Find the union of two arrays.
+
+function findUnionOfTwoArr(arr1,arr2){
+    return [...new Set([...arr1,...arr2])]
+}
+
+console.log("Union of two arrays", findUnionOfTwoArr([2,2,4,3],[1,4,3,2]));
