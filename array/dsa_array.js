@@ -808,4 +808,21 @@ function findUnionOfTwoArr(arr1,arr2){
     return [...new Set([...arr1,...arr2])]
 }
 
-console.log("Union of two arrays", findUnionOfTwoArr([2,2,4,3],[1,4,3,2]));
+// console.log("Union of two arrays", findUnionOfTwoArr([2,2,4,3],[1,4,3,2]));
+
+
+// 28. Find the difference between two arrays.
+
+function findTheDiff(arr1,arr2){
+    let res = new Set();
+    let lookUpSet = new Set(arr2);
+    for(const elem of arr1){
+        if(!lookUpSet.has(elem)){
+            res.add(elem);
+        }
+    }
+
+    return [...res];
+}
+
+console.log("find diff of two element", findTheDiff([2,2,4,3,5],[1,4,3,2]) )
