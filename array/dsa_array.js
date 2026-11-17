@@ -771,5 +771,18 @@ function nextPalindromeNum(num){
     }
 }
 
-console.log("Next nearest palindrome number", nextPalindromeNum(121));
-console.log("Next nearest palindrome number", nextPalindromeNum(1221));
+// console.log("Next nearest palindrome number", nextPalindromeNum(121));
+// console.log("Next nearest palindrome number", nextPalindromeNum(1221));
+
+// 26. Find the intersection of two arrays
+function findIntersection(arr1,arr2){
+    let set = new Set();
+    for(const elem of arr1){
+            if(arr2.indexOf(elem) !== -1){
+                set.add(elem);
+            }
+    }
+    return [...set];
+}
+
+console.log("Intersection of two elements",findIntersection([4, 5, 6, 5, 7], [5, 5, 4, 8]) )
