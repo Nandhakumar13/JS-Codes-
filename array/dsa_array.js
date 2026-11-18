@@ -871,4 +871,28 @@ function longConSeq(arr){
     return maxCount;
 }
 
+function longConSeq02(arr){
+    if(arr.length === 0) return 0;
+
+    let setArr = new Set(arr);
+    let maxCount = 0;
+
+    for(const num of setArr){
+
+        if(!setArr.has(num - 1)){
+            let currNum = num;
+            let count = 1;
+
+            while(setArr.has(currNum+1)){
+                currNum++;
+                count++
+            }
+            maxCount = Math.max(count,maxCount);
+        }
+    }
+
+    return maxCount;
+}
+
 console.log("Longest Consequtive Sequence", longConSeq([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
+console.log("Longest Consequtive Sequence", longConSeq02([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
