@@ -845,4 +845,30 @@ function leastFreqElem(arr){
     }
 }
 
-console.log("Least frequent element ", leastFreqElem([1, 2, 2, 3, 3, 3, 4]))
+// console.log("Least frequent element ", leastFreqElem([1, 2, 2, 3, 3, 3, 4]))
+
+
+// 33. Find the longest consecutive sequence.
+
+function longConSeq(arr){
+    if(arr.length === 0) return 0;
+    let sortArr = [...arr].sort((a,b) => a - b);
+    let modArr =[...new Set(sortArr)];
+    console.log(modArr,arr);
+    let count = 1;
+    let maxCount = 1;
+    for(let i = 0; i < modArr.length; i++){
+        // console.log(modArr[i],modArr[i+1], modArr[i+1] - 1,i);
+        
+        if(modArr[i+1] !== undefined && (modArr[i+1] - modArr[i] ) == 1 ){
+            count++;
+            maxCount = Math.max(count, maxCount);
+        }else{
+            count = 1;
+        }
+    }
+
+    return maxCount;
+}
+
+console.log("Longest Consequtive Sequence", longConSeq([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
