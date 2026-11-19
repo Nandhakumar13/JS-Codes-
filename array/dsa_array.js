@@ -894,5 +894,33 @@ function longConSeq02(arr){
     return maxCount;
 }
 
-console.log("Longest Consequtive Sequence", longConSeq([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
-console.log("Longest Consequtive Sequence", longConSeq02([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
+// console.log("Longest Consequtive Sequence", longConSeq([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
+// console.log("Longest Consequtive Sequence", longConSeq02([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]));
+
+
+// 34. Check whether two arrays are equal.
+
+function areArraysEqual(arr1,arr2){
+    let n1 = arr1.length;
+    let n2 = arr2.length;
+
+    if(n1 !== n2) return false;
+
+    let hashMap = new Map();
+
+    for(const elem of arr1){
+        hashMap.set(elem, (hashMap.get(elem) || 0) + 1);
+    }
+
+    for(const elem of arr2){
+        if(!hashMap.get(elem)) return false;
+        if(hashMap.get(elem)) {
+            hashMap.set(elem, hashMap.get(elem) - 1);
+        };
+    }
+
+    return true;
+}
+
+console.log("Check arrays are equal", areArraysEqual([1, 2, 3],[3, 2, 1]));
+console.log("Check arrays are equal", areArraysEqual([1, 2, 3, 3]	,[1, 2, 2, 3]));
