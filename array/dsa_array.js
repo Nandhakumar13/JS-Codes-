@@ -943,4 +943,40 @@ function findPairSum(arr,k){
     return res;
 }
 
-console.log("Find the pair of sum", findPairSum([1, 2, 3, 4, 5, 6],7));
+// console.log("Find the pair of sum", findPairSum([1, 2, 3, 4, 5, 6],7));
+
+
+// 36. Find pairs with a given difference.
+
+function findPairDiff(arr,k){
+    let hashMap = new Map();
+    let res = [];
+
+    for(const elem of arr){
+        let diff = k + elem;
+
+        if(hashMap.has(diff)){
+            res.push([diff,hashMap.get(diff)]);
+        }
+        
+        hashMap.set(elem,diff);
+    }
+
+    return res;
+}
+
+// console.log("Diff pair of elem", findPairDiff([1, 5, 3, 4, 2],2))
+
+
+// 37. Find the single number when all other elements appear twice.
+function findSingleNum(arr){
+    let xorElem = 0;
+
+    for(const elem of arr){
+        xorElem ^= elem;
+    }
+
+    return xorElem;
+}
+
+console.log("Find the single number when all other elements appear twice", findSingleNum([-1, 2, -1, 3, 2]));
