@@ -922,5 +922,25 @@ function areArraysEqual(arr1,arr2){
     return true;
 }
 
-console.log("Check arrays are equal", areArraysEqual([1, 2, 3],[3, 2, 1]));
-console.log("Check arrays are equal", areArraysEqual([1, 2, 3, 3]	,[1, 2, 2, 3]));
+// console.log("Check arrays are equal", areArraysEqual([1, 2, 3],[3, 2, 1]));
+// console.log("Check arrays are equal", areArraysEqual([1, 2, 3, 3]	,[1, 2, 2, 3]));
+
+
+// 35. Find pairs with a given sum.\
+
+
+function findPairSum(arr,k){
+    let hashMap = new Map();
+    let res = [];
+
+    for(const elem of arr){
+        let diff = k - elem;
+        if(hashMap.has(diff)){
+            res.push([diff,hashMap.get(diff)])
+        }
+        hashMap.set(elem, diff);
+    }
+    return res;
+}
+
+console.log("Find the pair of sum", findPairSum([1, 2, 3, 4, 5, 6],7));
