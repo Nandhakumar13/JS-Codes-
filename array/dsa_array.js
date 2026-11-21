@@ -991,11 +991,68 @@ function appearTwice(arr){
         hashMap.set(elem,(hashMap.get(elem) || 0) + 1);
     }
     let res = [];
-    for(const elem of arr){
-        if(hashMap.get(elem) == 1) res.push(elem);
+    // for(const elem of arr){
+    //     if(hashMap.get(elem) == 1) res.push(elem);
+    // }
+
+    for(const[elem,freq] of hashMap){
+        if(freq == 1) res.push(elem);
     }
 
     return res;
 }
 
-console.log("Elements appear once in the array", appearTwice([10, 20, 30, 10, 20, 40]));
+function appearTwice02(arr){
+    let xorElem = 0;
+    let setBit = 0;
+    for(const elem of arr){
+        xorElem ^= elem;
+        setBit = xorElem & -xorElem;
+        if((elem & setBit) !== 0){
+            console.log("not zero",elem);
+        }
+
+        if((elem & setBit) === 0){
+            console.log("zero",elem);
+        }
+    }
+}
+// console.log("Elements appear once in the array", appearTwice([10, 20, 30, 10, 20, 40]));
+// console.log("Elements appear once in the array", appearTwice02([10, 20, 30, 10, 20, 40]));
+
+//Problem 39: Find the Missing and Repeating Numbers
+
+function findMissAndRepeatNum(arr){
+    let res = [];
+
+    for(let i = 0; i < arr.length-1; i++){
+        // console.log(arr[i],arr[i]+1,arr[i+1]);
+        if(arr[i] + 1 !== arr[i+1]){
+            res.push(arr[i],arr[i]+1);
+            i++;
+        }
+    }
+
+    return res;
+}
+
+
+function findMissAndRepeatNum02(arr){
+    let n = arr.length;
+    let hashMap = new Map();
+    let res = [];
+    
+    
+
+    for(const elem of arr){
+        hashMap.set(elem, (hashMap.get(elem) || 0) + 1); 
+    }
+    for(let i = 1; i<n; i++){
+        if (hashMap.get(i) == 2 || hashMap.get(i) == 0 || hashMap.get(i) == undefined) res.push(i);
+    }
+
+    return res;
+}
+
+console.log("find the missing and repeating number", findMissAndRepeatNum([1,2,2,4,5]));
+console.log("find the missing and repeating number", findMissAndRepeatNum02([1,2,2,4,5]));
