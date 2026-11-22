@@ -1074,4 +1074,24 @@ function countDistinctElem(arr,k){
     return res;
 }
 
-console.log(countDistinctElem([1, 2, 1, 3, 4, 2, 3],4));
+function countDistinctElem02(arr,k){
+    let res = [];
+    let n = arr.length;
+    let map = new Map();
+    for(let i = 0; i < k; i++){
+        map.set(arr[i], (map.get(arr[i]) || 0) + 1);
+    }
+    res.push(map.size);
+
+    for(let i = k; i < n; i++){
+        let outElem = arr[i-k];
+        let inElem = arr[i];
+        map.set(outElem, map.get(outElem) - 1);
+        if(map.get(outElem) == 0) map.delete(outElem);
+        map.set(inElem, (map.get(inElem) || 0) +1 );
+        res.push(map.size);
+    }
+    return res;
+}
+// console.log(countDistinctElem([1, 2, 1, 3, 4, 2, 3],4));
+console.log(countDistinctElem02([1, 2, 1, 3, 4, 2, 3],4));
