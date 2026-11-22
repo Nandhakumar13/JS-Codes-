@@ -1054,5 +1054,24 @@ function findMissAndRepeatNum02(arr){
     return res;
 }
 
-console.log("find the missing and repeating number", findMissAndRepeatNum([1,2,2,4,5]));
-console.log("find the missing and repeating number", findMissAndRepeatNum02([1,2,2,4,5]));
+// console.log("find the missing and repeating number", findMissAndRepeatNum([1,2,2,4,5]));
+// console.log("find the missing and repeating number", findMissAndRepeatNum02([1,2,2,4,5]));
+
+
+// 40. Count distinct elements in every window of size K.
+
+function countDistinctElem(arr,k){
+
+    let res = [];
+    let n = arr.length;
+    for(let i = 0; i <= n-k; i++){
+        let set = new Set();
+        for(let j = i; j < i+k; j++){
+            set.add(arr[j]);
+        }
+        res.push([...set].length);
+    }
+    return res;
+}
+
+console.log(countDistinctElem([1, 2, 1, 3, 4, 2, 3],4));
