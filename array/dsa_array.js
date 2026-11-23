@@ -1094,4 +1094,49 @@ function countDistinctElem02(arr,k){
     return res;
 }
 // console.log(countDistinctElem([1, 2, 1, 3, 4, 2, 3],4));
-console.log(countDistinctElem02([1, 2, 1, 3, 4, 2, 3],4));
+// console.log(countDistinctElem02([1, 2, 1, 3, 4, 2, 3],4));
+
+
+// Problem 41: Pair with Target Sum in a Sorted Array
+
+function pairWithTargetSum(arr,k){
+    let res = [];
+    let hashMap = new Map();
+    for(const elem of arr){
+        let diff = k - elem;
+
+        if(hashMap.has(diff)){
+            res.push([diff, hashMap.get(diff)]);
+        }
+
+        hashMap.set(elem,diff);
+    }
+
+    return res;
+}
+
+function pairWithTargetSum02(arr,k){
+    let left = 0;
+    let right = arr.length - 1;
+    let res=[];
+
+    while(left < right){
+        let sum = arr[left] + arr[right];
+        if(sum == k){
+            res.push([arr[left], arr[right]]);
+            left++;
+            right--;
+        }else if(sum < k){
+            left++;
+        }else{
+            right--;
+        }
+        
+    }
+
+    return res;
+}
+
+console.log("pair with target sum", pairWithTargetSum([1, 2, 4, 6, 8, 9],10));
+console.log("pair with target sum", pairWithTargetSum02([1, 2, 4, 6, 8, 9],10));
+// console.log("pair with target sum", pairWithTargetSum02([1, 2, 5, 4],6));
