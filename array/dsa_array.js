@@ -1179,4 +1179,35 @@ function containerWithMostWater(arr){
 }
 
 
-console.log("container with most water", containerWithMostWater([1,8,6,2,5,4,8,3,7]));
+// console.log("container with most water", containerWithMostWater([1,8,6,2,5,4,8,3,7]));
+
+
+// 45. Trapping Rain Water.
+
+function rainTrap(arr){
+  let n = arr.length;
+  let preArr = [];
+  let suffarr = [];
+
+  preArr[0] = arr[0];
+  suffarr[n-1] = arr[n-1]
+
+  for(let i = 1;i < n; i++){
+     preArr[i] = Math.max(preArr[i-1], arr[i]) ;
+  }
+
+  for(let i = n-2; i >=0; i--){
+    suffarr[i] = Math.max(suffarr[i+1], arr[i]);
+  }
+
+  let count = 0;
+
+  for(let i = 0; i < n; i++){
+    count += Math.min(preArr[i], suffarr[i]) - arr[i];
+  }
+
+  console.log(preArr,suffarr,count);
+}
+
+
+console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
