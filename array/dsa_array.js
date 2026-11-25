@@ -1210,4 +1210,22 @@ function rainTrap(arr){
 }
 
 
-console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
+// console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
+
+
+// 46. Remove duplicates from a sorted array in-place.
+
+function removeDuplicateSortArr(arr){
+  let i = 0;
+  for(let j = 0; j < arr.length; j++){
+    if(arr[j] !== arr[j+1]){
+      [arr[i],arr[j]] = [arr[j], arr[i]];
+      i++;
+    }
+  }
+  console.log(arr.splice(0,i));
+  return arr.splice(0,i);
+
+}
+
+console.log("remove duplicate from the sorted array", removeDuplicateSortArr([1,1,2]));
