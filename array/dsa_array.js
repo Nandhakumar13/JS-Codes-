@@ -1147,4 +1147,36 @@ function threeSum(arr, k) {
   return res;
 }
 
-console.log("Three sum problem", threeSum([0, 1, 1, 2, -2], 0));
+// console.log("Three sum problem", threeSum([0, 1, 1, 2, -2], 0));
+
+
+// 44. Container With Most Water.
+
+
+function containerWithMostWater(arr){
+  let maxArea = 0;
+  let left = 0;
+  let right = arr.length - 1;
+
+  while(left < right){
+    let area = Math.min(arr[left], arr[right]) * (right - left);
+    maxArea = Math.max(area,maxArea);
+
+   
+
+    if(arr[left] == arr[right]){
+      left++;
+      right--;
+    }else if(arr[left] < arr[right]){
+      left++;
+    }else{
+      right--;
+    }
+    
+  }
+
+  return maxArea;
+}
+
+
+console.log("container with most water", containerWithMostWater([1,8,6,2,5,4,8,3,7]));
