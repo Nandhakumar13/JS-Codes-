@@ -1210,7 +1210,31 @@ function rainTrap(arr){
 }
 
 
-// console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
+function rainWaterTrap02(arr){
+  let left = 0;
+  let right = arr.length - 1;
+
+  let leftMax = 0;
+  let rightMax = 0;
+
+  let water = 0;
+
+  while(left < right){
+    if(arr[left] < arr[right]){
+       leftMax = Math.max(leftMax, arr[left]);
+       water += leftMax - arr[left];
+       left++;
+    }else{
+      rightMax = Math.max(rightMax, arr[right]);
+       water += rightMax - arr[right];
+       right--;
+    }
+  }
+  return water;
+}
+
+console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
+console.log("Rain trap problem 02", rainWaterTrap02([0,1,0,2,1,0,1,3,2,1,2,1]));
 
 
 // 46. Remove duplicates from a sorted array in-place.
@@ -1228,4 +1252,4 @@ function removeDuplicateSortArr(arr){
 
 }
 
-console.log("remove duplicate from the sorted array", removeDuplicateSortArr([1,1,2]));
+// console.log("remove duplicate from the sorted array", removeDuplicateSortArr([1,1,2]));
