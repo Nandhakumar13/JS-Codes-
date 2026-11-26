@@ -1233,8 +1233,8 @@ function rainWaterTrap02(arr){
   return water;
 }
 
-console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
-console.log("Rain trap problem 02", rainWaterTrap02([0,1,0,2,1,0,1,3,2,1,2,1]));
+// console.log("Rain trap problem", rainTrap([0,1,0,2,1,0,1,3,2,1,2,1]));
+// console.log("Rain trap problem 02", rainWaterTrap02([0,1,0,2,1,0,1,3,2,1,2,1]));
 
 
 // 46. Remove duplicates from a sorted array in-place.
@@ -1253,3 +1253,65 @@ function removeDuplicateSortArr(arr){
 }
 
 // console.log("remove duplicate from the sorted array", removeDuplicateSortArr([1,1,2]));
+
+
+// 47. Sort an array containing 0s, 1s and 2s.
+
+function sortingDuplicateArr(arr){
+  let i = 0;
+
+  for(let j = 0; j < arr.length; j++){
+    if(arr[j] >= arr[j+1]){
+      console.log(arr[j],arr[i], arr[j+1]);
+      [arr[i],arr[j]] = [arr[j], arr[i]];
+      i++;
+    }
+  }
+
+  console.log(arr);
+}
+
+// console.log("Sorting duplicate arrays", sortingDuplicateArr([2, 0, 2, 1, 1, 0]));
+
+
+// 47. Sort an array containing 0s, 1s and 2s.
+
+function sortArr012(arr){
+  let a = [];
+  let b = [];
+  let c = [];
+
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] == 0){
+      a.push(i);
+    }
+    else if(arr[i] == 1){
+      b.push(i);
+    }else{
+      c.push(i);
+    }
+  }
+
+  console.log(a,b,c);
+
+  let copyArr = structuredClone(arr);
+
+  let index = 0;
+  for(const elem of a){
+    arr[index] = copyArr[elem];
+    index++;
+  }
+  for(const elem of b){
+    arr[index] = copyArr[elem];
+    index++;
+  }
+  for(const elem of c){
+    arr[index] = copyArr[elem];
+    index++;
+  }
+
+  console.log(arr);
+
+}
+
+console.log("sorting array containg 0,1,2", sortArr012([2, 0, 1, 2, 1, 0]));
