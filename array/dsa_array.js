@@ -1314,4 +1314,36 @@ function sortArr012(arr){
 
 }
 
-console.log("sorting array containg 0,1,2", sortArr012([2, 0, 1, 2, 1, 0]));
+function sortArr0122(arr){
+
+
+  let count0 = 0;
+  let count1 = 0;
+  let count2 = 0;
+  let n= arr.length;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === 0) count0++;
+    else if(arr[i] === 1) count1++;
+    else count2++;
+  }
+
+  let i = 0;
+  while(i<count0){
+    arr[i] = 0;
+    i++;
+  }
+  while(i < count0+count1){
+    arr[i] = 1;
+    i++;
+  }
+  while(i < count1+count0+count2){
+    arr[i] = 2;
+    i++;
+  }
+
+  // console.log(count1, count0, count2,arr);
+  return arr;
+}
+
+// console.log("sorting array containg 0,1,2", sortArr012([2, 0, 1, 2, 1, 0]));
+console.log("sorting array containg 0,1,2", sortArr0122([2, 0, 1, 2, 1, 0,0]));
