@@ -1346,4 +1346,21 @@ function sortArr0122(arr){
 }
 
 // console.log("sorting array containg 0,1,2", sortArr012([2, 0, 1, 2, 1, 0]));
-console.log("sorting array containg 0,1,2", sortArr0122([2, 0, 1, 2, 1, 0,0]));
+// console.log("sorting array containg 0,1,2", sortArr0122([2, 0, 1, 2, 1, 0,0]));
+
+// 48. Three-way partitioning.
+
+function threeWayPartitioning(arr,k){
+  let n = arr.length;
+  let left=[], right =[], middle =[], res = [];
+  
+  for(const elem of arr){
+    if(elem < k) left.push(elem);
+    else if(elem > k) right.push(elem);
+    else middle.push(elem);
+  }
+  res = [...left,...middle,...right];
+  return res;
+}
+
+console.log("three way partioning", threeWayPartitioning([9, 12, 3, 5, 14, 10, 10], 10));
